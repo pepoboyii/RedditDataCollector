@@ -3,8 +3,6 @@ from matplotlib import pyplot as plt
    
 
 def search(sub,word,n_posts):
-    
-    
     subreddit = reddit.subreddit(sub)
     
     comment_count = 0
@@ -15,15 +13,10 @@ def search(sub,word,n_posts):
 
     
     for submission in subreddit.hot(limit = n_posts):
-        
         submission.comments.replace_more(limit = None)
-        
         for comment in submission.comments.list():
-            
             comment_count += 1
-            
             if hasattr(comment, "body") and word in comment.body.lower():
- 
                 found_count += 1
                                
     percentage = found_count / comment_count * 100  
@@ -31,11 +24,8 @@ def search(sub,word,n_posts):
     print(f"\nThere was a match {found_count} " \
           f"times in {percentage:.02f}% of the comments " \
               f"scanned in r/{subreddit}. {comment_count} comments scanned.")
-    
     return (found_count,comment_count,percentage)
     
-    
-
 if __name__ == "__main__":
     
     
@@ -44,20 +34,17 @@ if __name__ == "__main__":
                      client_secret = "",
                      user_agent = "")
     
-
     #populate this list with the subreddits you want to search for
     sub_list = ['pics','politics','funny']
     
     #This is obvious
     word_to_search = 'why'
-    
-    
+   
     nof_posts = 1
+      
+    D = {} #Dict for plotting
     
-
-    
-    D = {}
-    
+    #Plotting
     for subreddit in sub_list:
         D[subreddit] = search(subreddit,word_to_search,nof_posts)[2]
         
