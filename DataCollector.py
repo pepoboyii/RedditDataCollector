@@ -39,9 +39,9 @@ def search(sub,word,n_posts):
 if __name__ == "__main__":
     
     
-    reddit = praw.Reddit(client_id = "l-Vl3xBi9VMQow",
-                     client_secret = "vynw2ab-WTBxUE0mlc6qBerm5nExig",
-                     user_agent = "scraper_api")
+    reddit = praw.Reddit(client_id = "",
+                     client_secret = "",
+                     user_agent = "")
     
 
     
