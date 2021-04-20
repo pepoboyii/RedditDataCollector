@@ -8,9 +8,7 @@ def search(sub,word,n_posts):
     comment_count = 0
     found_count = 0
     
-
     print(f"\nConnecting to {sub} \nGathering submissions...")    
-
     
     for submission in subreddit.hot(limit = n_posts):
         submission.comments.replace_more(limit = None)
@@ -27,7 +25,6 @@ def search(sub,word,n_posts):
     return (found_count,comment_count,percentage)
     
 if __name__ == "__main__":
-    
     
     #The things here are reddit secret information, get these from the reddit website developer section
     reddit = praw.Reddit(client_id = "",
